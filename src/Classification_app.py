@@ -27,6 +27,9 @@ import glob
 from importlib import reload
 import spectral.io.envi as envi
 import pandas as pd
+from pathlib import Path
+
+srcpath = Path(__file__).resolve().parent
 
 def myceil(num):
     # arrondi le nombre, num, à la 4eme décimale superieure
@@ -971,10 +974,10 @@ class MainWindow(QtWidgets.QMainWindow):# permet de lier chaque bouton de l'inte
             
             df_R = pd.DataFrame( R_combined, columns=liste_fich_array)
             df_R.insert(0, 'Wavelength (nm)', Crit.Wavelength)
-            df_R.to_excel('data/R_database.xlsx', index=False)
+            df_R.to_excel(srcpath.parent/'data'/'R_database.xlsx', index=False)
             df_R_nowater = pd.DataFrame(R_nowater_combined, columns=liste_fich_array)
             df_R_nowater.insert(0, 'Wavelength (nm)', Crit.Wavelength_nowater)
-            df_R_nowater.to_excel('data/R_nowater_database.xlsx', index=False)
+            df_R_nowater.to_excel(srcpath.parent/'data'/'R_nowater_database.xlsx', index=False)
             # np.savetxt('data/R_nowater.txt', np.hstack([Crit.R_nowater, self.newR_nowater]), delimiter='    ', header='Liste de facteur de reflectance spectrale de la pigmentothèque reellement utilises dans la classification (tronques sur les bandes d absorption de l eau). A priori de taille 644 lignes (nombre de wavelength) par 174 colonnes (nombre de spectres). La liste des noms de fichiers correspondants est :liste_pigments_database; la liste des wavelengths est: Wavelength_nowater', encoding=None)
             # np.savetxt('data/R.txt', np.hstack([Crit.R, self.newR]), delimiter='    ', header='Liste de facteur de reflectance spectrale de la pigmentothèque. A priori de taille 826 lignes (nombre de wavelength) par 174 colonnes (nombre de spectres). La liste des noms de fichiers correspondants est :liste_pigments_database; la liste des wavelengths est: Wavelength', encoding=None)
             # np.savetxt('data/liste_pigments_database.txt', liste_fich_array, fmt='%s',delimiter='    ', header='liste des pigments utilisés dans la base de données de classification', encoding=None)
@@ -994,8 +997,8 @@ class MainWindow(QtWidgets.QMainWindow):# permet de lier chaque bouton de l'inte
             R_nowater_rect = np.zeros((np.shape(np.hstack([Crit.R_nowater, self.newR_nowater]))[0],new_shape[0]*new_shape[1]))
             R_nowater_rect [:,:newn_R] = np.hstack([Crit.R_nowater, self.newR_nowater])
             
-            envi.save_image('data/'+name[0]+'.hdr',np.reshape(R_rect.T, newshape=(new_shape[0],new_shape[1],np.shape(np.hstack([Crit.R, self.newR]))[0])),dtype=np.float64, metadata = {'wavelength' : Crit.Wavelength})
-            envi.save_image('data/'+name[0]+'_nowater.hdr',np.reshape(R_nowater_rect.T, newshape=(new_shape[0],new_shape[1],np.shape(np.hstack([Crit.R_nowater, self.newR_nowater]))[0])),dtype=np.float64, metadata = {'wavelength' : Crit.Wavelength_nowater})
+            envi.save_image(str(srcpath.parent)+'/data/'+name[0]+'.hdr',np.reshape(R_rect.T, newshape=(new_shape[0],new_shape[1],np.shape(np.hstack([Crit.R, self.newR]))[0])),dtype=np.float64, metadata = {'wavelength' : Crit.Wavelength})
+            envi.save_image(str(srcpath.parent)+'/data/'+name[0]+'_nowater.hdr',np.reshape(R_nowater_rect.T, newshape=(new_shape[0],new_shape[1],np.shape(np.hstack([Crit.R_nowater, self.newR_nowater]))[0])),dtype=np.float64, metadata = {'wavelength' : Crit.Wavelength_nowater})
             
             
 

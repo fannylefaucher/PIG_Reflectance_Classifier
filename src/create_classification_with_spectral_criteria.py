@@ -14,17 +14,19 @@ from sklearn.decomposition import FastICA
 from scipy.ndimage import gaussian_filter
 from scipy.signal import argrelextrema
 import pandas as pd
+from pathlib import Path
 
+srcpath = Path(__file__).resolve().parent
 # plt.close('all')
 #%% LOAD DATABASE
 
 # Load R database
-df_R = pd.read_excel('data/R_database.xlsx')
+df_R = pd.read_excel(srcpath.parent/'data'/'R_database.xlsx')
 Wavelength = df_R['Wavelength (nm)'].to_numpy()
 R = df_R.iloc[:, 1:].to_numpy()
 
 # Load R_nowater database
-df_R_nowater = pd.read_excel('data/R_nowater_database.xlsx')
+df_R_nowater = pd.read_excel(srcpath.parent/'data'/'R_nowater_database.xlsx')
 Wavelength_nowater = df_R_nowater['Wavelength (nm)'].to_numpy()
 liste_pig_names = df_R.columns[1:].to_numpy()
 R_nowater = df_R_nowater.iloc[:, 1:].to_numpy()
