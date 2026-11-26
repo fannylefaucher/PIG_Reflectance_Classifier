@@ -1,0 +1,56 @@
+name: pigmento
+channels:
+  - defaults
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+  - https://repo.anaconda.com/pkgs/msys2
+dependencies:
+  - bzip2=1.0.8=h2bbff1b_6
+  - ca-certificates=2026.11.5=h382c6e5_0
+  - libexpat=2.10.0=hd7fb8db_0
+  - libffi=3.4.8=h42d73b9_3
+  - libzlib=1.3.2=h1c6eee0_0
+  - openssl=3.5.9=hbb43b14_0
+  - packaging=26.3=py312haa95532_0
+  - pip=26.2.2=pyhc872135_0
+  - python=3.12.16=hd7b1df3_0
+  - setuptools=84.2.1=py312haa95532_0
+  - sqlite=3.54.1=hee5a0db_0
+  - tk=8.6.15=hf199647_0
+  - ucrt=10.0.22621.0=haa95532_0
+  - vc=14.3=h2df5915_12
+  - vc14_runtime=14.44.35208=h4927774_12
+  - vs2015_runtime=14.44.35208=ha6b5a95_12
+  - wheel=0.48.0=py312haa95532_0
+  - xz=5.8.4=hb851c79_0
+  - zlib=1.3.2=h1c6eee0_0
+  - pip:
+      - altgraph==0.17.5
+      - cloudpickle==3.1.3
+      - contourpy==1.3.3
+      - cycler==0.12.1
+      - et-xmlfile==2.0.0
+      - fonttools==4.69.1
+      - joblib==1.6.0
+      - kiwisolver==1.5.1
+      - matplotlib==3.9.2
+      - numpy==1.26.0
+      - openpyxl==3.1.5
+      - pandas==1.5.3
+      - pefile==2024.8.26
+      - pillow==13.0.0
+      - pyinstaller==6.22.3
+      - pyinstaller-hooks-contrib==2026.10
+      - pyparsing==3.3.3
+      - pyqt5==5.15.10
+      - pyqt5-qt5==5.15.2
+      - pyqt5-sip==12.20.1
+      - python-dateutil==4.0.0
+      - pytz==2026.6
+      - pywin32-ctypes==0.2.3
+      - scikit-learn==1.5.1
+      - scipy==1.11.2
+      - spectral==0.25
+      - threadpoolctl==3.8.0
+      - tzdata==2026.6
+prefix: C:\Users\fsama\AppData\Local\anaconda3\envs\pigmento
