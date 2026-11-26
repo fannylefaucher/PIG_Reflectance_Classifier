@@ -1265,7 +1265,7 @@ if __name__ == '__main__':# affiche l'interface graphique
     app = QtCore.QCoreApplication.instance()
     if app is None:
         app = QtWidgets.QApplication(sys.argv)
-    app.setWindowIcon(QtGui.QIcon("icon.png"))
+    app.setWindowIcon(QtGui.QIcon("icon.ico"))
     QtWidgets.QApplication.setStyle(QtWidgets.QStyleFactory.create('Fusion'))
     #app.setStyleSheet(qdarkstyle.load_stylesheet_pyqt5())
     mw = MainWindow()
